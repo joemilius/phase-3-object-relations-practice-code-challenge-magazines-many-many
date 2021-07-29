@@ -1,4 +1,5 @@
 puts "Clearing old data..."
+Subscription.destroy_all
 Magazine.destroy_all
 Reader.destroy_all
 
@@ -24,7 +25,7 @@ puts "Seeding subscriptions..."
   magazine_id = Magazine.ids.sample
   # Get a random price between 10 and 100:
   price = rand(10..100)
-
+  Subscription.create(reader_id: reader_id, magazine_id: magazine_id, price: price)
   # TODO: create subscriptions! Remember, a subscription belongs to a reader
   # and a subscription belongs to a magazine.
   
